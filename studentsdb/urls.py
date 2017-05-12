@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from students import students_views,groups_views, journal_views
+from students import students_views,groups_views, journal_views, ekzam_views,contact_admin_views
 from django.conf.urls.static import static
 from django.conf import settings
 from .settings import MEDIA_ROOT, DEBUG
@@ -37,6 +37,10 @@ urlpatterns = [
 
     #journal url
     url(r'^journal/$', journal_views.journal, name = 'journal'),
+	url(r'^ekzam/$', ekzam_views.ekzam, name ='ekzam'),
+	url(r'^ekzam_add/$', ekzam_views.ekzam_add, name = 'ekzam_add'),
+
+	url(r'^contact_admin/$', contact_admin_views.contact_admin, name='contact_admin'),
     url(r'^admin/', admin.site.urls),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

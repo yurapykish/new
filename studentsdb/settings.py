@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'students',
 ]
 
@@ -124,3 +125,17 @@ STATIC_URL = '/static/'
 PORTAL_URL = 'http://127.0.0.1:8000/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
+
+#http://vivazzi.ru/it/send-email-in-django/
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = "yura_pykish1994@mail.ru"
+EMAIL_HOST_PASSWORD = "yuraloveolia"
+EMAIL_USE_TLS = True
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+
+

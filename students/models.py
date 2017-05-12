@@ -88,3 +88,43 @@ class Groups(models.Model):
             return '%s(%s %s)' % (self.title, self.leader.first_name, self.leader.last_name)
         else:
             return "%s" % (self.title)
+
+
+class Ekzamyn(models.Model):
+	class Meta(object):
+		verbose_name='Eкзамени',
+		verbose_name_plural= 'Eкзамени'
+
+	ekzamyn = models.CharField(
+		max_length=256,
+		blank=True,
+		null=True,
+		verbose_name='Предмет')
+	
+	date = models.DateTimeField(
+		blank=True,
+		verbose_name='Дата і час проведення',
+		null=True)
+	
+	teacher = models.CharField(
+		max_length=256,
+		blank=True,
+		null=True,
+		verbose_name='Викладач')
+
+	group = models.ForeignKey('Groups',
+		verbose_name = "Екзаменаційна група",
+		blank=True,
+		null=True,
+		on_delete=models.SET_NULL)
+	def __str__(self):
+		return '%s' % (self.ekzamyn) 
+
+'''
+	inspector = models.OneToOneField('Student', verbose_name=u'Інспектор',
+            max_length = 256,
+            blank=True,
+	  		null=True,
+	    	on_delete=models.SET_NULL)
+'''
+	    
